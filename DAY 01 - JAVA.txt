@@ -1,0 +1,63 @@
+QSN : GET NAME AND CONTACT AND EMAIL AND PASSWORD FROM USER AND PRINT THEM:
+
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        String email = sc.nextLine();
+        String pass = sc.nextLine();
+        long number = sc.nextLong();
+        System.out.println("Name: " + name);
+        System.out.println("Contact Number: " + number);
+        System.out.println("Email: " + email);
+        System.out.println("Password: " + pass);
+    }
+}
+
+
+
+2.QSN : ADD THREE NUMBERS ENTERED BY USER AND PRINT THEM
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        int n3 = sc.nextInt();
+        System.out.println("Sum of the three numbers =  " + (n1+n2+n3));
+    }
+}
+
+3. QSN: SWAP TWO NUMBERS ENTERED BY USER
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        int temp;
+        temp = n1;
+        n1=n2;
+        n2=temp;
+        System.out.println("Swapped number n1 = " + n1);
+        System.out.println("Swapped number n2 = " + n2);
+    }
+}
+
+
+4.QSN: GET THE RADIUS AS INPUT FROM THE USER AND FIND THE AREA OF THE CIRCLE
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double pi = Math.PI;
+        double r = sc.nextFloat();
+        double area = pi*r*r;
+        System.out.printf("The area of the circle = %.2f" , area);
+    }
+}
