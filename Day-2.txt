@@ -1,0 +1,313 @@
+
+1. Write a Java program to calculate the electricity bill based on the following rules:
+Units	Rate per unit
+0 – 100	₹5
+101 – 300	₹7
+Above 300	₹10
+If total bill > ₹2000, add 10% surcharge.
+
+
+import java.util.*;
+
+public class ElectricityBill {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter units consumed: ");
+        int units = sc.nextInt();
+        double bill = 0;
+
+        if (units <= 100) {
+            bill = units * 5;
+        } else if (units <= 300) {
+            bill = 100 * 5 + (units - 100) * 7;
+        } else {
+            bill = 100 * 5 + 200 * 7 + (units - 300) * 10;
+        }
+
+        if (bill > 2000) {
+            bill += bill * 0.10; // 10% surcharge
+        }
+
+        System.out.println("Total Bill: ₹" + bill);
+    }
+}
+
+
+
+
+
+
+
+
+2.  Student Grade System
+Get marks for 5 subjects.
+Find average and assign grade as per the following:
+Average	Grade
+≥ 90	A+
+80–89	A
+70–79	B
+60–69	C
+< 60	Fail
+
+
+import java.util.*;
+
+public class StudentGrade {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double total = 0;
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("Enter marks of subject " + i + ": ");
+            total += sc.nextDouble();
+        }
+
+        double avg = total / 5;
+        System.out.println("Average Marks: " + avg);
+
+        if (avg >= 90)
+            System.out.println("Grade: A+");
+        else if (avg >= 80)
+            System.out.println("Grade: A");
+        else if (avg >= 70)
+            System.out.println("Grade: B");
+        else if (avg >= 60)
+            System.out.println("Grade: C");
+        else
+            System.out.println("Grade: Fail");
+    }
+}
+
+
+
+
+3. Employee Bonus Calculation
+Company policy:
+If experience > 5 years → 15% bonus
+Else if experience ≥ 3 → 10% bonus
+Else → 5% bonus
+
+
+import java.util.*;
+
+public class EmployeeBonus {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter basic salary: ");
+        double salary = sc.nextDouble();
+        System.out.print("Enter years of experience: ");
+        int exp = sc.nextInt();
+
+        double bonusPercent;
+        if (exp > 5)
+            bonusPercent = 15;
+        else if (exp >= 3)
+            bonusPercent = 10;
+        else
+            bonusPercent = 5;
+
+        double bonus = salary * bonusPercent / 100;
+        System.out.println("Bonus Amount: ₹" + bonus);
+        System.out.println("Total Salary (with bonus): ₹" + (salary + bonus));
+    }
+}
+
+
+
+
+4. ATM Withdrawal Simulation
+User enters balance and withdrawal amount.
+Check if sufficient balance
+If yes → deduct
+Else → print “Insufficient Balance”
+
+
+
+import java.util.*;
+
+public class ATM {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter current balance: ");
+        double balance = sc.nextDouble();
+        System.out.print("Enter withdrawal amount: ");
+        double withdraw = sc.nextDouble();
+
+        if (withdraw <= balance) {
+            balance -= withdraw;
+            System.out.println("Withdrawal Successful! Remaining Balance: ₹" + balance);
+        } else {
+            System.out.println("Insufficient Balance!");
+        }
+    }
+}
+
+
+
+
+5. Shopping Discount System
+If total amount > ₹5000, apply 20% discount,
+else if > ₹2000 → 10% discount,
+otherwise no discount.
+
+
+
+import java.util.*;
+
+public class ShoppingDiscount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter total purchase amount: ");
+        double amount = sc.nextDouble();
+
+        double discount = 0;
+        if (amount > 5000)
+            discount = amount * 0.20;
+        else if (amount > 2000)
+            discount = amount * 0.10;
+
+        double finalAmount = amount - discount;
+        System.out.println("Discount: ₹" + discount);
+        System.out.println("Amount to Pay: ₹" + finalAmount);
+    }
+}
+
+
+
+
+6. Traffic Light Simulation
+Use a switch statement to display the meaning of each light color.
+
+
+import java.util.*;
+
+public class TrafficLight {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter light color (Red/Yellow/Green): ");
+        String color = sc.next().toLowerCase();
+
+        switch (color) {
+            case "red":
+                System.out.println("Stop!");
+                break;
+            case "yellow":
+                System.out.println("Get Ready!");
+                break;
+            case "green":
+                System.out.println("Go!");
+                break;
+            default:
+                System.out.println("Invalid color!");
+        }
+    }
+}
+
+
+
+
+
+7. Simple Calculator using Switch
+
+
+
+import java.util.*;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        double a = sc.nextDouble();
+        System.out.print("Enter second number: ");
+        double b = sc.nextDouble();
+        System.out.print("Enter operator (+, -, *, /): ");
+        char op = sc.next().charAt(0);
+
+        double result = 0;
+        switch (op) {
+            case '+': result = a + b; break;
+            case '-': result = a - b; break;
+            case '*': result = a * b; break;
+            case '/': 
+                if (b != 0) result = a / b; 
+                else System.out.println("Division by zero not allowed!");
+                break;
+            default: System.out.println("Invalid operator!");
+        }
+
+        System.out.println("Result: " + result);
+    }
+}
+
+
+
+
+8. Find the area and parameter of rectangle
+
+
+
+import java.util.*;
+
+public class Rectangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter length: ");
+        double length = sc.nextDouble();
+        System.out.print("Enter width: ");
+        double width = sc.nextDouble();
+
+        double area = length * width;
+        double perimeter = 2 * (length + width);
+
+        System.out.println("Area: " + area);
+        System.out.println("Perimeter: " + perimeter);
+    }
+}
+
+
+
+
+
+9. Check if Number is Even or Odd
+
+
+
+
+import java.util.*;
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        if (num % 2 == 0)
+            System.out.println(num + " is Even");
+        else
+            System.out.println(num + " is Odd");
+    }
+}
+
+
+
+
+
+10. Check Leap Year
+
+
+
+import java.util.*;
+
+public class LeapYear {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter year: ");
+        int year = sc.nextInt();
+
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+            System.out.println(year + " is a Leap Year");
+        else
+            System.out.println(year + " is not a Leap Year");
+    }
+}
+
