@@ -1,0 +1,162 @@
+1.Count vowels in a string
+
+import java.util.Scanner;
+
+public class CountVowels {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        
+        int count = 0;
+        str = str.toLowerCase();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                count++;
+            }
+        }
+        
+        System.out.println("Number of vowels in the string: " + count);
+    }
+}
+2.Reverse a string
+
+import java.util.Scanner;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        
+        String reversed = "";
+        
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+        
+        System.out.println("Reversed string: " + reversed);
+    }
+}
+
+3.Check if a string is a palindrome
+
+import java.util.Scanner;
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        
+        String reversed = "";
+        
+        // Reverse the string
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+        
+        // Check if palindrome (ignoring case)
+        if (str.equalsIgnoreCase(reversed)) {
+            System.out.println("The string is a palindrome.");
+        } else {
+            System.out.println("The string is not a palindrome.");
+        }
+    }
+}
+4.Find duplicate characters
+
+import java.util.Scanner;
+
+public class DuplicateCharacters {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        str = str.toLowerCase();
+        System.out.println("Duplicate characters in the string:");
+        char[] chars = str.toCharArray();
+        
+        for (int i = 0; i < chars.length; i++) {
+            int count = 1;
+            if (chars[i] == '0' || chars[i] == ' ') 
+                continue; 
+            for (int j = i + 1; j < chars.length; j++) {
+                if (chars[i] == chars[j]) {
+                    count++;
+                    chars[j] = '0'; 
+                }
+            }
+            
+            if (count > 1)
+                System.out.println(chars[i] + " - " + count + " times");
+        }
+    }
+}
+5.Check if two strings are anagrams
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class AnagramCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter first string: ");
+        String str1 = sc.nextLine();
+        
+        System.out.print("Enter second string: ");
+        String str2 = sc.nextLine();
+      
+        str1 = str1.replaceAll("\\s", "").toLowerCase();
+        str2 = str2.replaceAll("\\s", "").toLowerCase();
+   
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+       
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        
+        if (Arrays.equals(arr1, arr2)) {
+            System.out.println("The strings are anagrams.");
+        } else {
+            System.out.println("The strings are not anagrams.");
+        }
+    }
+}
+6.Compress a string using run-length encoding (e.g., aaabb → a3b2).
+
+import java.util.Scanner;
+
+public class RunLengthEncoding {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        
+        StringBuilder compressed = new StringBuilder();
+        int count = 1;
+        
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                count++;
+            } else {
+                compressed.append(str.charAt(i - 1)).append(count);
+                count = 1;
+            }
+        }
+        
+        // Append the last character and its count
+        if (str.length() > 0) {
+            compressed.append(str.charAt(str.length() - 1)).append(count);
+        }
+        
+        System.out.println("Compressed string: " + compressed);
+    }
+}
